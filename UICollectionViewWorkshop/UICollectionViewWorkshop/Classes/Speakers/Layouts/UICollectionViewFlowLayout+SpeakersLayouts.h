@@ -8,5 +8,5 @@
 @interface UICollectionViewFlowLayout (SpeakersLayouts)
 
 + (instancetype)speakersVerticalLayout;
-
++ (instancetype)speakersHorizontalLayout;
 @end

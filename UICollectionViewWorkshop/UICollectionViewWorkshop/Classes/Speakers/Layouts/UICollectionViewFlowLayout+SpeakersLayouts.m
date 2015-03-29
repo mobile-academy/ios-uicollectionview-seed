@@ -15,4 +15,12 @@
     return flowLayout;
 }
 
++ (instancetype)speakersHorizontalLayout {
+    UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    flowLayout.minimumLineSpacing = 20.f;
+    return flowLayout;
+}
+
 @end
