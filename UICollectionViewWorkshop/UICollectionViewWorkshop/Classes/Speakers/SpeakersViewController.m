@@ -15,12 +15,6 @@
 /*
     This is a view controller for managing collection view.
     It takes `SpeakersDataSource` as a dependency to provide items for collection view.
-
-    Please follow the TODOs to complete this exercise.
-    (To list TODOs in AppCode use CMD+6 shortcut.)
-
-    HINT 1: Only this file need to be changed.
-    HINT 2: Implement `-switchLayouts` and `-sizeForItemAtIndexPath:` methods. See TODOs.
  */
 + (instancetype)withDataSource:(SpeakersDataSource *)dataSource {
     return [[self alloc] initWithDataSource:dataSource];
@@ -51,34 +45,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    // TODO 1. Create UIBarButtonItem for rightBarButtonItem for `-switchLayoutSelector`
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Switch"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(switchLayouts)];
 }
 
 - (void)switchLayouts {
-    // TODO 2. You have to toggle between 2 flow layouts
-    // first: `speakersVerticalLayout` and second `speakersHorizontalLayout` (See _UICollectionViewFlowLayout+SpeakersLayouts_ file for definitions)
-    //
-    // HINT 1. You can test `scrollDirection` property of flow layout to determine which layout should be applied.
-    // HINT 2. To apply layout call `-setCollectionViewLayout:animated` on collection view.
-    // HINT 3. You can enable paging (`-pagingEnabled`) on collection view for horizontal layout
+    UICollectionView *collectionView = (UICollectionView *) self.view;
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *) collectionView.collectionViewLayout;
+    BOOL isHorizontalLayout = flowLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal;
+    UICollectionViewLayout *toLayout = isHorizontalLayout
+            ? [UICollectionViewFlowLayout speakersVerticalLayout]
+            : [UICollectionViewFlowLayout speakersHorizontalLayout];
+
+    collectionView.pagingEnabled = !isHorizontalLayout;
+    [collectionView setCollectionViewLayout:toLayout animated:YES];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize size = CGSizeZero;
-    // TODO 3. You have to calculate different sizes for vertical and horizontal layout
-    // HINT 1: Vertical cell size remains the same.
+    CGSize size;
 
-    // Uncomment following code and implement.
-
-//    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *) collectionViewLayout;
-//    BOOL isHorizontalLayout = flowLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal;
-//    if (isHorizontalLayout) {
-//
-//    } else {
-//
-//    }
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *) collectionViewLayout;
+    BOOL isHorizontalLayout = flowLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal;
+    if (isHorizontalLayout) {
+        CGFloat width = CGRectGetWidth(collectionView.bounds);
+        CGFloat height = CGRectGetHeight(collectionView.bounds) - collectionView.contentInset.top - collectionView.contentInset.bottom;
+        size = CGSizeMake(width, height);
+    } else {
+        CGFloat width = CGRectGetWidth(collectionView.bounds) * 0.5f;
+        size = CGSizeMake(width, width);
+    }
 
     CGFloat margin = 20.f;
     return CGSizeMake(size.width - margin, size.height - margin);
