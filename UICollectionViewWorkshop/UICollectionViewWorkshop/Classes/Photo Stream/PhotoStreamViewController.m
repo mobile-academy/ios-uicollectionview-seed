@@ -8,9 +8,8 @@
 #import "PhotoStreamLayout.h"
 #import "PhotoStreamCell.h"
 #import "StreamItemPreviewViewController.h"
-#import "StreamItemPreviewLayout.h"
 
-@interface PhotoStreamViewController ()
+@interface PhotoStreamViewController () <UINavigationControllerDelegate>
 @property(nonatomic, strong) UIRefreshControl *refreshControl;
 @property(nonatomic, strong) NSMutableArray *streamItems;
 @end
@@ -52,6 +51,9 @@ NSString * const PhotoStreamViewControllerCellId = @"PhotoStreamViewControllerCe
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self.streamItemDownloader downloadStreamItems];
+    self.navigationController.delegate = self;
+    self.transitionManager = [[TransitionManager alloc] initWithCollectionView:self.collectionView];
+    self.transitionManager.delegate = self;
 }
 
 - (void)setupCollectionView {
@@ -125,6 +127,26 @@ NSString * const PhotoStreamViewControllerCellId = @"PhotoStreamViewControllerCe
 
 - (UITabBar *)tabBarToPresentOnImagePickOptionsForStreamItemCreator:(StreamItemCreator *)streamItemCreator {
     return self.tabBarController.tabBar;
+}
+
+#pragma mark - UINavigationControllerDelegate
+
+- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                   animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                fromViewController:(UIViewController *)fromVC
+                                                  toViewController:(UIViewController *)toVC {
+    return self.transitionManager.startedInteraction ? self.transitionManager : nil;
+}
+
+- (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
+                          interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>)animationController {
+    return animationController == self.transitionManager ? self.transitionManager : nil;
+}
+
+#pragma mark - TransitionManagerDelegate
+
+- (void)managerDidStartInteractiveTransition:(TransitionManager *)transitionManager {
+
 }
 
 @end
