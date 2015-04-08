@@ -98,6 +98,10 @@ NSString * const PhotoStreamViewControllerCellId = @"PhotoStreamViewControllerCe
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self presentStreamItemForIndexPath:indexPath];
+}
+
+- (void)presentStreamItemForIndexPath:(NSIndexPath *)indexPath {
     StreamItem *streamItem = self.streamItems[(NSUInteger) indexPath.item];
     StreamItemPreviewViewController *streamItemViewController = [[StreamItemPreviewViewController alloc] initWithStreamItem:streamItem];
     streamItemViewController.useLayoutToLayoutNavigationTransitions = YES;
@@ -146,7 +150,8 @@ NSString * const PhotoStreamViewControllerCellId = @"PhotoStreamViewControllerCe
 #pragma mark - TransitionManagerDelegate
 
 - (void)managerDidStartInteractiveTransition:(TransitionManager *)transitionManager {
-
+    NSIndexPath *indexPath = [transitionManager indexPathForPinch];
+    [self presentStreamItemForIndexPath:indexPath];
 }
 
 @end

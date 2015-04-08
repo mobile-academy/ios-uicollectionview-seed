@@ -14,6 +14,7 @@
 
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView;
 
+- (NSIndexPath *)indexPathForPinch;
 @end
 
 @protocol TransitionManagerDelegate <NSObject>
