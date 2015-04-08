@@ -20,8 +20,10 @@
 		510430CB905269641AC639F1 /* StreamItemUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 51043F02674B9355374670C9 /* StreamItemUploader.m */; };
 		510431402D5A5CE3BD822955 /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 510436E1AD26E20613D913A7 /* ImageResizer.m */; };
 		510431F55466141ED87AD9BE /* StreamItemPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51043B34F597E81385E648CF /* StreamItemPreviewViewController.m */; };
+		5104325DE16C2FDAC3621B16 /* TransitionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 510432946F65252B68F0E3BD /* TransitionLayout.m */; };
 		510432C37C8B3CE25A3733C6 /* ConfigurationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104388F6E4183A44691835D /* ConfigurationFactory.m */; };
 		5104353B8C2F1B5FB56BB7E6 /* StreamItemPreviewViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 510431B1CC9E1F59FADDF1EF /* StreamItemPreviewViewControllerSpec.m */; };
+		510436B3E87A131A99A87DAB /* TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104335B89CD6E33394B9F4D /* TransitionManager.m */; };
 		5104380F6ECF25F455410B27 /* StreamItemCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 51043BCD2C0969342D447145 /* StreamItemCreator.m */; };
 		51043822B6D4BA5874E0A2F0 /* Configurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104377ED6A446BAFF080C47 /* Configurator.m */; };
 		510439B7ECF0880D69DAE47D /* StreamItemDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 510439708484FAEEDDD36758 /* StreamItemDownloader.m */; };
@@ -101,8 +103,11 @@
 		510431885F81B54FAA88F548 /* StreamItemUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamItemUploader.h; sourceTree = "<group>"; };
 		510431B1CC9E1F59FADDF1EF /* StreamItemPreviewViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamItemPreviewViewControllerSpec.m; sourceTree = "<group>"; };
 		510431CE755A2F38DAA5E0BF /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = "Classes/Photo Stream/Localizable.strings"; sourceTree = "<group>"; };
+		510432946F65252B68F0E3BD /* TransitionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionLayout.m; sourceTree = "<group>"; };
+		5104335B89CD6E33394B9F4D /* TransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionManager.m; sourceTree = "<group>"; };
 		51043408DFAF68BB6514A4F4 /* PhotoStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoStreamViewController.m; sourceTree = "<group>"; };
 		510434CF5FFE88DF4C4614B4 /* StreamItemPreviewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamItemPreviewLayout.h; sourceTree = "<group>"; };
+		5104356D4E793BD5CF8BAE38 /* TransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionManager.h; sourceTree = "<group>"; };
 		5104358D27A204333C3A1943 /* Configurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configurator.h; sourceTree = "<group>"; };
 		5104368814B61694473240F9 /* StreamItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamItem.h; sourceTree = "<group>"; };
 		510436E1AD26E20613D913A7 /* ImageResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResizer.m; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 		51043DD01F6F2D9E95350235 /* StreamItemPreviewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamItemPreviewLayout.m; sourceTree = "<group>"; };
 		51043E430B6E7119BB5F140D /* PhotoStreamLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoStreamLayout.m; sourceTree = "<group>"; };
 		51043E77440F1D644772D7AB /* StreamItemDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamItemDownloader.h; sourceTree = "<group>"; };
+		51043EA8E8D0FCF49D20406B /* TransitionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionLayout.h; sourceTree = "<group>"; };
 		51043F02674B9355374670C9 /* StreamItemUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamItemUploader.m; sourceTree = "<group>"; };
 		5F83237D24FA322A87506174 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6D63FB47D33D3F9EF6E8F593 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,6 +237,7 @@
 				51043BDB159F535D37E29B50 /* PhotoStreamViewController.h */,
 				51043408DFAF68BB6514A4F4 /* PhotoStreamViewController.m */,
 				51043D5A7ACF39BB172C270E /* PhotoStreamViewControllerSpec.m */,
+				510439AC27CAE3A9CFC866FF /* Transition */,
 			);
 			path = "Photo Stream";
 			sourceTree = "<group>";
@@ -266,6 +273,17 @@
 				5104388F6E4183A44691835D /* ConfigurationFactory.m */,
 			);
 			path = "App Configuration";
+			sourceTree = "<group>";
+		};
+		510439AC27CAE3A9CFC866FF /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				51043EA8E8D0FCF49D20406B /* TransitionLayout.h */,
+				510432946F65252B68F0E3BD /* TransitionLayout.m */,
+				5104356D4E793BD5CF8BAE38 /* TransitionManager.h */,
+				5104335B89CD6E33394B9F4D /* TransitionManager.m */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		510439DDF95332A035712C83 /* Preview */ = {
@@ -781,6 +799,8 @@
 				51043822B6D4BA5874E0A2F0 /* Configurator.m in Sources */,
 				510432C37C8B3CE25A3733C6 /* ConfigurationFactory.m in Sources */,
 				51043E7565828C559CEB84E7 /* StreamItemPreviewLayout.m in Sources */,
+				5104325DE16C2FDAC3621B16 /* TransitionLayout.m in Sources */,
+				510436B3E87A131A99A87DAB /* TransitionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
