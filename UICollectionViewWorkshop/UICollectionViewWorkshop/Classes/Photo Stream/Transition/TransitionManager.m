@@ -3,9 +3,12 @@
 //  
 
 #import "TransitionManager.h"
+#import "TransitionLayout.h"
 
 @interface TransitionManager ()
 @property(nonatomic, strong) id <UIViewControllerContextTransitioning> transitionContext;
+@property(nonatomic, strong) TransitionLayout *transitionLayout;
+@property(nonatomic, strong) UIPinchGestureRecognizer *pinchRecogniser;
 @end
 
 @implementation TransitionManager
@@ -16,8 +19,8 @@
     self = [super init];
     if (self) {
         self.collectionView = collectionView;
-        UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didPinch:)];
-        [self.collectionView addGestureRecognizer:pinch];
+        self.pinchRecogniser = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didPinch:)];
+        [self.collectionView addGestureRecognizer:self.pinchRecogniser];
     }
     return self;
 }
@@ -33,6 +36,8 @@
             [self.delegate managerDidStartInteractiveTransition:self];
             break;
         case UIGestureRecognizerStateChanged:
+            [self.transitionLayout setTransitionProgress:progress];
+            [self.transitionLayout invalidateLayout];
             [self.transitionContext updateInteractiveTransition:progress];
             break;
         case UIGestureRecognizerStateEnded:
@@ -68,9 +73,25 @@
 #pragma mark - UIViewControllerInteractiveTransitioning
 
 - (void)startInteractiveTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+    self.transitionContext = transitionContext;
+    UICollectionViewController *fromCollectionViewController =
+        (UICollectionViewController *) [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UICollectionViewController *toCollectionViewController =
+        (UICollectionViewController *) [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    [[transitionContext containerView] addSubview:[toCollectionViewController view]];
+
+    self.transitionLayout = (TransitionLayout *) [fromCollectionViewController.collectionView
+        startInteractiveTransitionToCollectionViewLayout:toCollectionViewController.collectionViewLayout
+                                              completion:^(BOOL didFinish, BOOL didComplete) {
+                                                  [self.transitionContext completeTransition:didComplete];
+                                                  self.transitionLayout = nil;
+                                                  self.transitionContext = nil;
+                                                  self.startedInteraction = NO;
+                                              }];
 }
 
 - (NSIndexPath *)indexPathForPinch {
-    return [NSIndexPath indexPathForRow:0 inSection:0]; //TODO this is temporary implementation
+    CGPoint location = [self.pinchRecogniser locationInView:self.collectionView];
+    return [self.collectionView indexPathForItemAtPoint:location];
 }
 @end

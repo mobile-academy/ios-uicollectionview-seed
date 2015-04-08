@@ -8,6 +8,7 @@
 #import "PhotoStreamLayout.h"
 #import "PhotoStreamCell.h"
 #import "StreamItemPreviewViewController.h"
+#import "TransitionLayout.h"
 
 @interface PhotoStreamViewController () <UINavigationControllerDelegate>
 @property(nonatomic, strong) UIRefreshControl *refreshControl;
@@ -95,6 +96,12 @@ NSString * const PhotoStreamViewControllerCellId = @"PhotoStreamViewControllerCe
     return cell;
 }
 
+- (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView
+                        transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout
+                                           newLayout:(UICollectionViewLayout *)toLayout {
+    return [[TransitionLayout alloc] initWithCurrentLayout:fromLayout nextLayout:toLayout];
+}
+
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -151,6 +158,7 @@ NSString * const PhotoStreamViewControllerCellId = @"PhotoStreamViewControllerCe
 
 - (void)managerDidStartInteractiveTransition:(TransitionManager *)transitionManager {
     NSIndexPath *indexPath = [transitionManager indexPathForPinch];
+    [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
     [self presentStreamItemForIndexPath:indexPath];
 }
 
