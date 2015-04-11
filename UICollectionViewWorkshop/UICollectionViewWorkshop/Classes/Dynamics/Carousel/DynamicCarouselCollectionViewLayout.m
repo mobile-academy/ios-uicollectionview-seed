@@ -5,6 +5,13 @@
 #import "DynamicCarouselCollectionViewLayout.h"
 
 
+@interface DynamicCarouselCollectionViewLayout ()
+
+@property(nonatomic, strong) UIDynamicAnimator *dynamicAnimator;
+@property(nonatomic) BOOL ignoreDynamicAnimator;
+
+@end
+
 @implementation DynamicCarouselCollectionViewLayout
 
 - (instancetype)init {
@@ -13,52 +20,89 @@
         self.itemSize = CGSizeMake(300, 250);
         self.interItemSpace = 50;
 
-        // TODO 1: Create dynamic animator for current layout.
+        self.dynamicAnimator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
     }
 
     return self;
 }
 
 - (void)prepareLayout {
+    self.ignoreDynamicAnimator = YES;
+
     [super prepareLayout];
 
-    // TODO 2: Create attachment behavior for every item and add it to dynamic animator.
-    // Hints:
-    // 1. Use item.center calculated by superclass to for attachment's anchor point.
-    // 2. Setup behaviours only once (simplified solution that assumes our items collection doesn't change).
-    // 3. Suggested initial values for attachment's properties: length: 0, damping: 0.8, frequency: 1.0.
+    CGSize contentSize = self.collectionViewContentSize;
+    NSArray *items = [super layoutAttributesForElementsInRect:CGRectMake(0.0f, 0.0f, contentSize.width, contentSize.height)];
 
+    if (self.dynamicAnimator.behaviors.count == 0) {
+        [items enumerateObjectsUsingBlock:^(id <UIDynamicItem> item, NSUInteger idx, BOOL *stop) {
+            UIAttachmentBehavior *attachmentBehavior = [[UIAttachmentBehavior alloc] initWithItem:item
+                                                                                 attachedToAnchor:[item center]];
 
+            attachmentBehavior.length = 0.0f;
+            attachmentBehavior.damping = 0.8f;
+            attachmentBehavior.frequency = 1.0f;
 
-    // TODO 4: Disable the use of dynamics animator when layout gets prepared.
+            [self.dynamicAnimator addBehavior:attachmentBehavior];
+        }];
+    }
+
+    self.ignoreDynamicAnimator = NO;
 }
 
 #pragma mark -
 
-// TODO 3: Use dynamic animator to return layout attributes.
-// Hints:
-// 1. Override layoutAttributesForElementsInRect: and layoutAttributesForItemAtIndexPath: methods.
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
+    if (self.ignoreDynamicAnimator) {
+        return [super layoutAttributesForElementsInRect:rect];
+    } else {
+        return [self.dynamicAnimator itemsInRect:rect];
+    }
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.ignoreDynamicAnimator) {
+        return [super layoutAttributesForItemAtIndexPath:indexPath];
+    } else {
+        return [self.dynamicAnimator layoutAttributesForCellAtIndexPath:indexPath];
+    }
+}
+
+#pragma mark - 
+
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
+    self.ignoreDynamicAnimator = YES;
+
+    CGPoint offset = [super targetContentOffsetForProposedContentOffset:proposedContentOffset
+                                                  withScrollingVelocity:velocity];
+
+    self.ignoreDynamicAnimator = NO;
+
+    return offset;
+}
 
 #pragma mark -
-
-// TODO 5: Fix target offset.
-// Hint: Override the method and use the same trick we use in prepareLayout to ignore dynamic animator
-//       when target content offset is calculated.
-
-
-#pragma mark -
-
-// TODO 6: Add scrolling resistance.
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
-    // For each item correct its position by moving it slightly in the direction opposite to scrolling direction.
+    CGFloat delta = newBounds.origin.x - self.collectionView.bounds.origin.x;
+    CGPoint touchLocation = [self.collectionView.panGestureRecognizer locationInView:self.collectionView];
 
-    // Hints:
-    // 1. Position correction should be based on bounds change and the distance between the touch and the original position of the item.
-    //    center.x change = (bounds change) * (item distance from the touch / coefficient(start with 1500)).
-    // 2. Get the touch position from collection view's pan gesture recognizer.
-    // 3. Get the final position of the item from its attachment behavior.
-    // 4. Remember to tell the animator that you've changed the item's state.
+    [self.dynamicAnimator.behaviors enumerateObjectsUsingBlock:^(UIDynamicBehavior *behavior, NSUInteger idx, BOOL *stop) {
+        if ([behavior isKindOfClass:[UIAttachmentBehavior class]]) {
+            UIAttachmentBehavior *springBehaviour = (UIAttachmentBehavior *) behavior;
+
+            CGFloat xDistanceFromTouch = fabsf(touchLocation.x - springBehaviour.anchorPoint.x);
+            CGFloat scrollResistance = xDistanceFromTouch / 1500.0f;
+
+            UICollectionViewLayoutAttributes *item = springBehaviour.items.firstObject;
+
+            CGPoint center = item.center;
+            center.x += delta * scrollResistance;
+            item.center = center;
+
+            [self.dynamicAnimator updateItemUsingCurrentState:item];
+        }
+    }];
 
     return [super shouldInvalidateLayoutForBoundsChange:newBounds];
 }
