@@ -35,7 +35,10 @@
 
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
-    [self modifyAppearance];
+
+    // Sorry, back to default colors :)
+    // [self modifyAppearance];
+    
     return YES;
 }
 

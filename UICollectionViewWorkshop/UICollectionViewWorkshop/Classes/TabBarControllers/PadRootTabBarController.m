@@ -4,6 +4,8 @@
 #import "PadRootTabBarController.h"
 #import "CarouselViewController.h"
 #import "UINavigationController+Utilities.h"
+#import "DynamicsPlaygroundViewController.h"
+#import "DynamicsPlaygroundViewController+Factory.h"
 
 
 @implementation PadRootTabBarController
@@ -11,7 +13,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewControllers = @[
-            [UINavigationController withController:[CarouselViewController new]],
+            [DynamicsPlaygroundViewController dynamicsPlaygroundViewController]
     ];
 }
 

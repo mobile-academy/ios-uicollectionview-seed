@@ -31,6 +31,8 @@
 		51043EE482F303BAC596B8DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 510431CE755A2F38DAA5E0BF /* Localizable.strings */; };
 		51043F03A21CF6BD35B6F5DF /* StreamItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104305E0B9136A77CFAC18E /* StreamItem.m */; };
 		51043F042A7454963EF793BE /* AbstractConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 510439ECD8EC7FA7A4691E66 /* AbstractConfiguration.m */; };
+		52EFA5DF7C5262E9CF9AD50F /* DynamicsPlaygroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFA5B66F521A9B575F062F /* DynamicsPlaygroundViewController.m */; };
+		52EFA68310F084213D4AA25E /* DynamicsPlaygroundViewController+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFA40CD51BA0C66B66B413 /* DynamicsPlaygroundViewController+Factory.m */; };
 		8108600E663E5630C4F42409 /* sp_3-03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 810862D7528CC5CA5330B476 /* sp_3-03.jpg */; };
 		810860475EC25CD24D05153D /* PhoneRootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8108605A6E72E491C9611B40 /* PhoneRootTabBarController.m */; };
 		810861114B8FF68800335A8A /* sp_45-12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 81086486E93A796DD0397EBE /* sp_45-12.jpg */; };
@@ -126,6 +128,10 @@
 		51043E430B6E7119BB5F140D /* PhotoStreamLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoStreamLayout.m; sourceTree = "<group>"; };
 		51043E77440F1D644772D7AB /* StreamItemDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamItemDownloader.h; sourceTree = "<group>"; };
 		51043F02674B9355374670C9 /* StreamItemUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamItemUploader.m; sourceTree = "<group>"; };
+		52EFA1672514002515894380 /* DynamicsPlaygroundViewController+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DynamicsPlaygroundViewController+Factory.h"; sourceTree = "<group>"; };
+		52EFA40CD51BA0C66B66B413 /* DynamicsPlaygroundViewController+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DynamicsPlaygroundViewController+Factory.m"; sourceTree = "<group>"; };
+		52EFA47D145291DE97F64066 /* DynamicsPlaygroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicsPlaygroundViewController.h; sourceTree = "<group>"; };
+		52EFA5B66F521A9B575F062F /* DynamicsPlaygroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicsPlaygroundViewController.m; sourceTree = "<group>"; };
 		5F83237D24FA322A87506174 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6D63FB47D33D3F9EF6E8F593 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8108605A6E72E491C9611B40 /* PhoneRootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneRootTabBarController.m; sourceTree = "<group>"; };
@@ -292,11 +298,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		52EFAF868A21CCD1C597B52B /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				52EFA47D145291DE97F64066 /* DynamicsPlaygroundViewController.h */,
+				52EFA5B66F521A9B575F062F /* DynamicsPlaygroundViewController.m */,
+				52EFA40CD51BA0C66B66B413 /* DynamicsPlaygroundViewController+Factory.m */,
+				52EFA1672514002515894380 /* DynamicsPlaygroundViewController+Factory.h */,
+			);
+			path = Playground;
+			sourceTree = "<group>";
+		};
 		8108619B691A67AB7B04BD55 /* Dynamics */ = {
 			isa = PBXGroup;
 			children = (
 				8108623058D0F9B1F24412F8 /* DynamicsViewController.m */,
 				81086BC92BA5B8D91EF14A15 /* DynamicsViewController.h */,
+				52EFAF868A21CCD1C597B52B /* Playground */,
 			);
 			path = Dynamics;
 			sourceTree = "<group>";
@@ -775,6 +793,8 @@
 				51043F042A7454963EF793BE /* AbstractConfiguration.m in Sources */,
 				51043822B6D4BA5874E0A2F0 /* Configurator.m in Sources */,
 				510432C37C8B3CE25A3733C6 /* ConfigurationFactory.m in Sources */,
+				52EFA5DF7C5262E9CF9AD50F /* DynamicsPlaygroundViewController.m in Sources */,
+				52EFA68310F084213D4AA25E /* DynamicsPlaygroundViewController+Factory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
