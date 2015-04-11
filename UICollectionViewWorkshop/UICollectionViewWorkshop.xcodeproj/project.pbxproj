@@ -295,6 +295,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		52EFA6B2C63E53B1908C4030 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Carousel;
+			sourceTree = "<group>";
+		};
 		52EFAF868A21CCD1C597B52B /* Playground */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				52EFAF868A21CCD1C597B52B /* Playground */,
+				52EFA6B2C63E53B1908C4030 /* Carousel */,
 			);
 			path = Dynamics;
 			sourceTree = "<group>";

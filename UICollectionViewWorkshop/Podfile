@@ -8,6 +8,7 @@ xcodeproj 'UICollectionViewWorkshop'
 pod 'Parse'
 pod 'MTDates'
 pod 'Tweaks'
+pod 'PBDCarouselCollectionViewLayout'
 
 target :UICollectionViewWorkshopTests, :exclusive => true do
 	pod 'Specta'
