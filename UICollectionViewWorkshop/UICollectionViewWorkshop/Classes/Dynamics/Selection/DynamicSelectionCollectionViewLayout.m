@@ -51,17 +51,18 @@
 - (void)updateSelectionForIndexPath:(NSIndexPath *)indexPath {
     BOOL selected = [self.collectionView.indexPathsForSelectedItems containsObject:indexPath];
 
-    UICollectionViewLayoutAttributes *currentAttributes = [self layoutAttributesForItemAtIndexPath:indexPath];
-    UICollectionViewLayoutAttributes *flowLayoutAttributes = [super layoutAttributesForItemAtIndexPath:indexPath];
-
     if (selected) {
         [self.selectedIndexPaths addObject:indexPath];
         [self recalculateBehaviorsForSelectedIndexPaths];
     } else {
+        UICollectionViewLayoutAttributes *currentAttributes = [self layoutAttributesForItemAtIndexPath:indexPath];
+
         [self removeBehaviorForIndexPath:indexPath];
         [self.selectedIndexPaths removeObject:indexPath];
 
         [self recalculateBehaviorsForSelectedIndexPaths];
+
+        UICollectionViewLayoutAttributes *flowLayoutAttributes = [super layoutAttributesForItemAtIndexPath:indexPath];
 
         UISnapBehavior *snapBehavior = [[UISnapBehavior alloc] initWithItem:currentAttributes
                                                                 snapToPoint:flowLayoutAttributes.center];
