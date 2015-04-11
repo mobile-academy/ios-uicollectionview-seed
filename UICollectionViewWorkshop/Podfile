@@ -7,6 +7,7 @@ xcodeproj 'UICollectionViewWorkshop'
 
 pod 'Parse'
 pod 'MTDates'
+pod 'Tweaks'
 
 target :UICollectionViewWorkshopTests, :exclusive => true do
 	pod 'Specta'
