@@ -23,7 +23,7 @@
         self.sectionInset = UIEdgeInsetsMake(20, 20, 20, 200);
         self.itemSize = CGSizeMake(100, 100);
 
-        // TODO 1: Create dynamic animator.
+        self.dynamicAnimator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
 
         self.snapBehaviors = [NSMutableDictionary dictionary];
         self.selectedIndexPaths = [NSMutableArray array];
@@ -35,39 +35,39 @@
 - (void)recalculateBehaviorsForSelectedIndexPaths {
     [self.selectedIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
         UICollectionViewLayoutAttributes *currentAttributes = [self layoutAttributesForItemAtIndexPath:indexPath];
+        [self removeBehaviorForIndexPath:indexPath];
 
-        // TODO 3.2: Add snap behaviors for all selected items.
-        // Hints:
-        // 1. Use centerForSelectedItemAtIndex: as a snap point.
-        // 2. Use removeBehaviorForIndexPath: to remove old behavior before creating a new one.
+        NSUInteger index = [self.selectedIndexPaths indexOfObject:indexPath];
+        CGPoint snapPoint = [self centerForSelectedItemAtIndex:index];
+
+        UISnapBehavior *snapBehavior = [[UISnapBehavior alloc] initWithItem:currentAttributes
+                                                                snapToPoint:snapPoint];
+
+        self.snapBehaviors[indexPath] = snapBehavior;
+        [self.dynamicAnimator addBehavior:snapBehavior];
     }];
 }
 
 - (void)updateSelectionForIndexPath:(NSIndexPath *)indexPath {
-    // TODO 3.1: Update behaviors.
-    // Hints:
-    // 1. If item is not selected make sure to remove its behavior with removeBehaviorForIndexPath:.
-    // 2. Use recalculateBehaviorsForSelectedIndexPaths method.
-
     BOOL selected = [self.collectionView.indexPathsForSelectedItems containsObject:indexPath];
 
+    UICollectionViewLayoutAttributes *currentAttributes = [self layoutAttributesForItemAtIndexPath:indexPath];
+    UICollectionViewLayoutAttributes *flowLayoutAttributes = [super layoutAttributesForItemAtIndexPath:indexPath];
+
     if (selected) {
-        // TODO 3.1: Here!
-
         [self.selectedIndexPaths addObject:indexPath];
+        [self recalculateBehaviorsForSelectedIndexPaths];
     } else {
-        // TODO 3.1: And here!
-
+        [self removeBehaviorForIndexPath:indexPath];
         [self.selectedIndexPaths removeObject:indexPath];
 
-        // TODO 4: Add behavior to snap back when deselected.
-        // Hints:
-        // 1. Store attributes before deselecting the item
-        //    and add snap behavior with snap point based on center from attributes
-        //    returned from flow layout superclass.
-    }
+        [self recalculateBehaviorsForSelectedIndexPaths];
 
-    [self invalidateLayout];
+        UISnapBehavior *snapBehavior = [[UISnapBehavior alloc] initWithItem:currentAttributes
+                                                                snapToPoint:flowLayoutAttributes.center];
+        self.snapBehaviors[indexPath] = snapBehavior;
+        [self.dynamicAnimator addBehavior:snapBehavior];
+    }
 }
 
 #pragma mark - Overrides
@@ -97,32 +97,15 @@
 #pragma mark - Modifications
 
 - (UICollectionViewLayoutAttributes *)modifiedLayoutAttributesAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO 2.1: use dynamic animator to get modified attributes
-
-    UICollectionViewLayoutAttributes *layoutAttributes = [super layoutAttributesForItemAtIndexPath:indexPath];
-
-    NSUInteger index = [self.selectedIndexPaths indexOfObject:indexPath];
-    layoutAttributes.center = [self centerForSelectedItemAtIndex:index];
-
-    return layoutAttributes;
+    return [self.dynamicAnimator layoutAttributesForCellAtIndexPath:indexPath];
 }
 
 - (NSArray *)modifiedLayoutAttributesInRect:(CGRect)rect {
-    // TODO 2.2: use dynamic animator to get modified attributes
-
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-
-    for (NSIndexPath *indexPath in self.selectedIndexPaths) {
-        [result addObject:[self modifiedLayoutAttributesAtIndexPath:indexPath]];
-    }
-
-    return result.copy;
+    return [self.dynamicAnimator itemsInRect:rect];
 }
 
 - (BOOL)shouldUseModifiedLayoutAttributesForIndexPath:(NSIndexPath *)indexPath {
-    // TODO 3.3: YES if we have a behavior for this index path
-
-    return [self.selectedIndexPaths containsObject:indexPath];
+    return [self.snapBehaviors.allKeys containsObject:indexPath];
 }
 
 #pragma mark - Calculations
