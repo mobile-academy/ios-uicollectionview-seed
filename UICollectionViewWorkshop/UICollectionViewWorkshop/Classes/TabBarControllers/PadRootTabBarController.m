@@ -8,6 +8,8 @@
 #import "DynamicsPlaygroundViewController+Factory.h"
 #import "DynamicCarouselCollectionViewController.h"
 #import "DynamicCarouselCollectionViewController+Factory.h"
+#import "DynamicSelectionLayoutViewController.h"
+#import "DynamicSelectionLayoutViewController+Factory.h"
 
 
 @implementation PadRootTabBarController
@@ -15,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.viewControllers = @[
+            [DynamicSelectionLayoutViewController selectionFlowLayoutExampleViewController],
             [DynamicCarouselCollectionViewController dynamicCarouselCollectionViewController],
             [DynamicsPlaygroundViewController dynamicsPlaygroundViewController]
     ];

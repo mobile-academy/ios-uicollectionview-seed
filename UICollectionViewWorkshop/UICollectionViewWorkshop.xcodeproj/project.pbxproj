@@ -34,7 +34,11 @@
 		52EFA5DF7C5262E9CF9AD50F /* DynamicsPlaygroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFA5B66F521A9B575F062F /* DynamicsPlaygroundViewController.m */; };
 		52EFA68310F084213D4AA25E /* DynamicsPlaygroundViewController+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFA40CD51BA0C66B66B413 /* DynamicsPlaygroundViewController+Factory.m */; };
 		52EFA6EE643229E3938816CF /* DynamicCarouselCollectionViewController+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFA1C9BD298328A6B50D7D /* DynamicCarouselCollectionViewController+Factory.m */; };
+		52EFA7FB60E891F6CF28F715 /* DynamicSelectionLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFA9D7EB3DDD2F8828AAAD /* DynamicSelectionLayoutViewController.m */; };
+		52EFABD3702F0AD39809F06A /* DynamicSelectionCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFAB05667D74A7E332EE97 /* DynamicSelectionCollectionViewLayout.m */; };
+		52EFAC066F1E4F5FC0BC74CF /* DynamicSelectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFA76BDCB0B5BD183B1C61 /* DynamicSelectionCollectionViewCell.m */; };
 		52EFAD0CCC77C374F0197401 /* DynamicCarouselCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFAD3A485C6AF675D8DF8B /* DynamicCarouselCollectionViewLayout.m */; };
+		52EFAE384183B3CA16D18942 /* DynamicSelectionLayoutViewController+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFAC236BD175F896A4A797 /* DynamicSelectionLayoutViewController+Factory.m */; };
 		52EFAEA713BED99E1D761ABB /* DynamicCarouselCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EFA325FDB8B44810B3DC12 /* DynamicCarouselCollectionViewController.m */; };
 		8108600E663E5630C4F42409 /* sp_3-03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 810862D7528CC5CA5330B476 /* sp_3-03.jpg */; };
 		810860475EC25CD24D05153D /* PhoneRootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8108605A6E72E491C9611B40 /* PhoneRootTabBarController.m */; };
@@ -132,11 +136,19 @@
 		51043F02674B9355374670C9 /* StreamItemUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamItemUploader.m; sourceTree = "<group>"; };
 		52EFA1672514002515894380 /* DynamicsPlaygroundViewController+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DynamicsPlaygroundViewController+Factory.h"; sourceTree = "<group>"; };
 		52EFA1C9BD298328A6B50D7D /* DynamicCarouselCollectionViewController+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DynamicCarouselCollectionViewController+Factory.m"; sourceTree = "<group>"; };
+		52EFA28D5A75FFBCA74F20E7 /* DynamicSelectionCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicSelectionCollectionViewLayout.h; sourceTree = "<group>"; };
 		52EFA325FDB8B44810B3DC12 /* DynamicCarouselCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicCarouselCollectionViewController.m; sourceTree = "<group>"; };
 		52EFA40CD51BA0C66B66B413 /* DynamicsPlaygroundViewController+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DynamicsPlaygroundViewController+Factory.m"; sourceTree = "<group>"; };
 		52EFA47D145291DE97F64066 /* DynamicsPlaygroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicsPlaygroundViewController.h; sourceTree = "<group>"; };
+		52EFA4E049F6DE259868B531 /* DynamicSelectionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicSelectionCollectionViewCell.h; sourceTree = "<group>"; };
 		52EFA5B66F521A9B575F062F /* DynamicsPlaygroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicsPlaygroundViewController.m; sourceTree = "<group>"; };
+		52EFA76BDCB0B5BD183B1C61 /* DynamicSelectionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicSelectionCollectionViewCell.m; sourceTree = "<group>"; };
 		52EFA79108D270F0B901E332 /* DynamicCarouselCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicCarouselCollectionViewLayout.h; sourceTree = "<group>"; };
+		52EFA7FA0C419BD85BA8D06F /* DynamicSelectionLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicSelectionLayoutViewController.h; sourceTree = "<group>"; };
+		52EFA9D4DAEFC371900462DD /* DynamicSelectionLayoutViewController+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DynamicSelectionLayoutViewController+Factory.h"; sourceTree = "<group>"; };
+		52EFA9D7EB3DDD2F8828AAAD /* DynamicSelectionLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicSelectionLayoutViewController.m; sourceTree = "<group>"; };
+		52EFAB05667D74A7E332EE97 /* DynamicSelectionCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicSelectionCollectionViewLayout.m; sourceTree = "<group>"; };
+		52EFAC236BD175F896A4A797 /* DynamicSelectionLayoutViewController+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DynamicSelectionLayoutViewController+Factory.m"; sourceTree = "<group>"; };
 		52EFAD3A485C6AF675D8DF8B /* DynamicCarouselCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicCarouselCollectionViewLayout.m; sourceTree = "<group>"; };
 		52EFADDE68516B9FCA33B4DC /* DynamicCarouselCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicCarouselCollectionViewController.h; sourceTree = "<group>"; };
 		52EFAFF7C4D16F89A44CE455 /* DynamicCarouselCollectionViewController+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DynamicCarouselCollectionViewController+Factory.h"; sourceTree = "<group>"; };
@@ -304,6 +316,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		52EFA21D32B3AD7CE23BE4D6 /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				52EFA9D7EB3DDD2F8828AAAD /* DynamicSelectionLayoutViewController.m */,
+				52EFAB05667D74A7E332EE97 /* DynamicSelectionCollectionViewLayout.m */,
+				52EFA28D5A75FFBCA74F20E7 /* DynamicSelectionCollectionViewLayout.h */,
+				52EFA4E049F6DE259868B531 /* DynamicSelectionCollectionViewCell.h */,
+				52EFA76BDCB0B5BD183B1C61 /* DynamicSelectionCollectionViewCell.m */,
+				52EFA7FA0C419BD85BA8D06F /* DynamicSelectionLayoutViewController.h */,
+				52EFAC236BD175F896A4A797 /* DynamicSelectionLayoutViewController+Factory.m */,
+				52EFA9D4DAEFC371900462DD /* DynamicSelectionLayoutViewController+Factory.h */,
+			);
+			path = Selection;
+			sourceTree = "<group>";
+		};
 		52EFA6B2C63E53B1908C4030 /* Carousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +360,7 @@
 			children = (
 				52EFAF868A21CCD1C597B52B /* Playground */,
 				52EFA6B2C63E53B1908C4030 /* Carousel */,
+				52EFA21D32B3AD7CE23BE4D6 /* Selection */,
 			);
 			path = Dynamics;
 			sourceTree = "<group>";
@@ -815,6 +843,10 @@
 				52EFAD0CCC77C374F0197401 /* DynamicCarouselCollectionViewLayout.m in Sources */,
 				52EFAEA713BED99E1D761ABB /* DynamicCarouselCollectionViewController.m in Sources */,
 				52EFA6EE643229E3938816CF /* DynamicCarouselCollectionViewController+Factory.m in Sources */,
+				52EFA7FB60E891F6CF28F715 /* DynamicSelectionLayoutViewController.m in Sources */,
+				52EFABD3702F0AD39809F06A /* DynamicSelectionCollectionViewLayout.m in Sources */,
+				52EFAC066F1E4F5FC0BC74CF /* DynamicSelectionCollectionViewCell.m in Sources */,
+				52EFAE384183B3CA16D18942 /* DynamicSelectionLayoutViewController+Factory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
