@@ -380,9 +380,9 @@
 		81086DDEAEE41DBD94D72E3A /* Carousel */ = {
 			isa = PBXGroup;
 			children = (
-				81086CB20810D2B420B9E4B5 /* CarouselViewController.m */,
-				81086272E41ADA7B8B749177 /* CarouselViewController.h */,
 				B27A9E861813A535898BDA64 /* Layout */,
+				81086272E41ADA7B8B749177 /* CarouselViewController.h */,
+				81086CB20810D2B420B9E4B5 /* CarouselViewController.m */,
 			);
 			path = Carousel;
 			sourceTree = "<group>";
@@ -528,8 +528,8 @@
 		B27A9E861813A535898BDA64 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				B27A99FF9D051930F7C31F3E /* CarouselCollectionViewLayout.m */,
 				B27A9372924624A31DDC0759 /* CarouselCollectionViewLayout.h */,
+				B27A99FF9D051930F7C31F3E /* CarouselCollectionViewLayout.m */,
 			);
 			path = Layout;
 			sourceTree = "<group>";

@@ -14,7 +14,7 @@
 - (instancetype)initWithDisplayedDay:(NSDate *)displayedDay {
     self = [super init];
     if (self) {
-        _displayedDay = displayedDay;
+        _displayedDay = [displayedDay mt_startOfCurrentDay];
     }
 
     return self;
