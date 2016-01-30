@@ -63,7 +63,6 @@
 		A107AB6A1AC4A12500C6C6A2 /* UICollectionViewWorkshopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A107AB691AC4A12500C6C6A2 /* UICollectionViewWorkshopTests.m */; };
 		A165BC111AC4A9D000B1C426 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A165BC101AC4A9D000B1C426 /* Images.xcassets */; };
 		A165BC131AC4AD3300B1C426 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A165BC121AC4AD3300B1C426 /* Default-568h@2x.png */; };
-		B27A9114E34BE1439A2B4D7B /* PadRootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B27A9DFBBB77588197DEFCF7 /* PadRootTabBarController.m */; };
 		B27A9125E44405F09B5D1085 /* CarouselCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B27A99FF9D051930F7C31F3E /* CarouselCollectionViewLayout.m */; };
 		B27A97EE43C0402C16FE76CA /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B27A926E6558D226200BF1CC /* CalendarViewController.m */; };
 /* End PBXBuildFile section */
@@ -174,9 +173,7 @@
 		A165BC121AC4AD3300B1C426 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B27A926E6558D226200BF1CC /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		B27A9372924624A31DDC0759 /* CarouselCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselCollectionViewLayout.h; sourceTree = "<group>"; };
-		B27A965D36C1263B078D0B71 /* PadRootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PadRootTabBarController.h; sourceTree = "<group>"; };
 		B27A99FF9D051930F7C31F3E /* CarouselCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselCollectionViewLayout.m; sourceTree = "<group>"; };
-		B27A9DFBBB77588197DEFCF7 /* PadRootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PadRootTabBarController.m; sourceTree = "<group>"; };
 		B27A9F954F8C01C56EC1C937 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		C07E95A142AAD6A9418F80BD /* libPods-UICollectionViewWorkshopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UICollectionViewWorkshopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5CB5E4C40FD9D655EB2F1EA /* Pods-UICollectionViewWorkshopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UICollectionViewWorkshopTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UICollectionViewWorkshopTests/Pods-UICollectionViewWorkshopTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -371,8 +368,6 @@
 			children = (
 				8108605A6E72E491C9611B40 /* PhoneRootTabBarController.m */,
 				81086502E20936B3A79FD082 /* PhoneRootTabBarController.h */,
-				B27A9DFBBB77588197DEFCF7 /* PadRootTabBarController.m */,
-				B27A965D36C1263B078D0B71 /* PadRootTabBarController.h */,
 			);
 			path = TabBarControllers;
 			sourceTree = "<group>";
@@ -777,7 +772,6 @@
 				81086BA5B8E73F54385028B1 /* SpeakersDataSource.m in Sources */,
 				8108614C7D30D24431925898 /* SpeakerCollectionViewCell.m in Sources */,
 				431FE9AF1AD2F4050099DB7B /* CalendarCollectionViewLayout.m in Sources */,
-				B27A9114E34BE1439A2B4D7B /* PadRootTabBarController.m in Sources */,
 				B27A97EE43C0402C16FE76CA /* CalendarViewController.m in Sources */,
 				B27A9125E44405F09B5D1085 /* CarouselCollectionViewLayout.m in Sources */,
 				510431402D5A5CE3BD822955 /* ImageResizer.m in Sources */,

@@ -5,7 +5,7 @@
 #import "AppDelegate.h"
 #import "UIColor+Workshop.h"
 #import "PhoneRootTabBarController.h"
-#import "PadRootTabBarController.h"
+#import "CarouselViewController.h"
 #import "ConfigurationFactory.h"
 #import "Configurator.h"
 
@@ -30,7 +30,7 @@
         rootViewController = [PhoneRootTabBarController new];
     }
     else {
-        rootViewController = [PadRootTabBarController new];
+        rootViewController = [CarouselViewController new];
     }
 
     self.window.rootViewController = rootViewController;
